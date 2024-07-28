@@ -1,29 +1,24 @@
 <!DOCTYPE html>
-   <html>
-   <head>
-     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-     <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
-   </head>
-   <body style="margin: 0; overflow: hidden;">
-     <a-scene embedded arjs="sourceType: webcam;">
-       <a-marker preset="hiro">
-         <a-entity
-           position="0 0 0"
-           scale="1 1 1"
-           geometry="primitive: plane; width: 1; height: 0.5625;"
-           material="shader: flat; src: #video-texture"
-         ></a-entity>
-       </a-marker>
-       <a-assets>
-         <iamge id="video-texture" src="UT1.png" preload="auto" loop="true"></image>
-       </a-assets>
-       <a-entity camera></a-entity>
-     </a-scene>
-     <script>
-       document.querySelector('a-marker').addEventListener('markerFound', function() {
-         document.querySelector('#video-texture').play();
-       });
-     </script>
-   </body>
-   </html>
-   
+<html>
+<head>
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+</head>
+<body style="margin: 0; overflow: hidden;">
+  <a-scene embedded arjs="sourceType: webcam;">
+    <a-marker preset="hiro">
+      <a-image
+        src="#image-texture"
+        position="0 0 0"
+        rotation="-90 0 0"
+        width="1"
+        height="0.5625"
+      ></a-image>
+    </a-marker>
+    <a-assets>
+      <img id="image-texture" src="UT1.png">
+    </a-assets>
+    <a-entity camera></a-entity>
+  </a-scene>
+</body>
+</html>
